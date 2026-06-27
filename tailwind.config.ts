@@ -16,7 +16,11 @@ export default {
         ink: {
           DEFAULT: '#14110F', // primary text (near-black, warm)
           soft: '#4A453E', // secondary text
-          faint: '#8A8276', // captions / meta
+          // captions / meta / eyebrows. Darkened from the original #8A8276 (which
+          // measured 3.08–3.36:1 — below WCAG AA 4.5:1 for the small text it carries)
+          // to clear 4.5:1 on every paper surface (base 5.10, sink 4.66, raised 5.50)
+          // while staying the faintest of the three ink tiers.
+          faint: '#6C655C',
         },
         oxblood: {
           DEFAULT: '#7B2D26', // THE accent — deep warm red (links, rules, CTA)

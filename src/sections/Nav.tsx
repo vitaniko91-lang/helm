@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from '@iconify/react'
 import { cx } from '../lib/cx'
 import { Button } from '../components/Button'
@@ -21,6 +21,7 @@ const links = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const triggerRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -32,7 +33,12 @@ export function Nav() {
   useEffect(() => {
     if (!open) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false)
+      if (event.key === 'Escape') {
+        setOpen(false)
+        // Return focus to the trigger so keyboard users aren't dropped to <body>
+        // when the menu unmounts.
+        triggerRef.current?.focus()
+      }
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
@@ -80,6 +86,7 @@ export function Nav() {
 
         {/* Mobile disclosure trigger */}
         <button
+          ref={triggerRef}
           type="button"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}

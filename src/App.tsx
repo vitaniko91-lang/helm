@@ -28,11 +28,17 @@ import { Footer } from './sections/Footer'
 function App() {
   return (
     <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[3px] focus:bg-oxblood focus:px-4 focus:py-2 focus:font-sans focus:text-sm focus:font-medium focus:text-paper-base focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-ink"
+      >
+        Skip to content
+      </a>
       <LivingMargin />
       <PaperGrain />
       <div className="relative z-10 text-ink">
         <Nav />
-        <main>
+        <main id="main" tabIndex={-1} className="outline-none">
           <Hero />
           <Manifesto />
           <Work />

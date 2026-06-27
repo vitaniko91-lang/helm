@@ -74,7 +74,11 @@ export function CountUp({
   const display = `${prefix}${format(value, decimals, group)}${suffix}`
 
   return (
-    <span ref={ref} className={className} aria-label={finalLabel}>
+    // role="img" makes the aria-label authoritative — screen readers announce the
+    // final value ("92%") once, instead of the per-frame animating digits (which
+    // are aria-hidden). A bare aria-label on a generic <span> is announced
+    // inconsistently across AT; role="img" gives it a reliable accessible name.
+    <span ref={ref} className={className} role="img" aria-label={finalLabel}>
       <span aria-hidden>{display}</span>
     </span>
   )
