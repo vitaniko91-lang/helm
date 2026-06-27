@@ -4,6 +4,7 @@ import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
 import { Work } from './sections/Work'
+import { Services } from './sections/Services'
 
 /**
  * Editorial Atelier shell for Helm.
@@ -13,8 +14,9 @@ import { Work } from './sections/Work'
  * at z-10. The page paper comes from <body> (index.css), so the content layer
  * stays transparent and the margin contours read through on either side of the
  * column. The Manifesto rides its own quiet paper-sink band; Selected Work returns
- * to open paper as a ruled editorial ledger. Remaining sections (Services,
- * Approach, Proof, Contact, Footer) land in later tasks.
+ * to open paper as a ruled editorial ledger; Services follows as a numbered
+ * capability index on the same open paper. Remaining sections (Approach, Proof,
+ * Contact, Footer) land in later tasks.
  */
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Hero />
           <Manifesto />
           <Work />
+          <Services />
         </main>
       </div>
     </>
