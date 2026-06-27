@@ -5,6 +5,7 @@ import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
 import { Work } from './sections/Work'
 import { Services } from './sections/Services'
+import { Approach } from './sections/Approach'
 
 /**
  * Editorial Atelier shell for Helm.
@@ -15,8 +16,10 @@ import { Services } from './sections/Services'
  * stays transparent and the margin contours read through on either side of the
  * column. The Manifesto rides its own quiet paper-sink band; Selected Work returns
  * to open paper as a ruled editorial ledger; Services follows as a numbered
- * capability index on the same open paper. Remaining sections (Approach, Proof,
- * Contact, Footer) land in later tasks.
+ * capability index on the same open paper. Approach follows as the page's one
+ * pinned moment — a sticky "how we work" sequence that degrades to a static list
+ * on touch / reduced motion. Remaining sections (Proof, Contact, Footer) land in
+ * later tasks.
  */
 function App() {
   return (
@@ -30,6 +33,7 @@ function App() {
           <Manifesto />
           <Work />
           <Services />
+          <Approach />
         </main>
       </div>
     </>
