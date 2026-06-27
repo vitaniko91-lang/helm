@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import App from './App'
 
@@ -12,7 +12,12 @@ describe('App (nav + hero)', () => {
 
   it('renders the primary nav links', () => {
     render(<App />)
-    expect(screen.getByRole('link', { name: 'Work' })).toHaveAttribute('href', '#work')
-    expect(screen.getByRole('link', { name: 'Approach' })).toHaveAttribute('href', '#approach')
+    // Scope to the masthead landmark — the Footer now mirrors these same anchors.
+    const primary = screen.getByRole('navigation', { name: 'Primary' })
+    expect(within(primary).getByRole('link', { name: 'Work' })).toHaveAttribute('href', '#work')
+    expect(within(primary).getByRole('link', { name: 'Approach' })).toHaveAttribute(
+      'href',
+      '#approach',
+    )
   })
 })

@@ -6,6 +6,9 @@ import { Manifesto } from './sections/Manifesto'
 import { Work } from './sections/Work'
 import { Services } from './sections/Services'
 import { Approach } from './sections/Approach'
+import { Proof } from './sections/Proof'
+import { Contact } from './sections/Contact'
+import { Footer } from './sections/Footer'
 
 /**
  * Editorial Atelier shell for Helm.
@@ -18,8 +21,9 @@ import { Approach } from './sections/Approach'
  * to open paper as a ruled editorial ledger; Services follows as a numbered
  * capability index on the same open paper. Approach follows as the page's one
  * pinned moment — a sticky "how we work" sequence that degrades to a static list
- * on touch / reduced motion. Remaining sections (Proof, Contact, Footer) land in
- * later tasks.
+ * on touch / reduced motion. The page then closes on a quiet Proof testimonial
+ * band, a confident Contact crescendo, and the editorial Footer colophon (sibling
+ * of <main>, still on the content layer above the ambient signature).
  */
 function App() {
   return (
@@ -34,7 +38,10 @@ function App() {
           <Work />
           <Services />
           <Approach />
+          <Proof />
+          <Contact />
         </main>
+        <Footer />
       </div>
     </>
   )
