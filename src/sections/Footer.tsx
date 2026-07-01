@@ -2,7 +2,8 @@ import { Container } from '../components/Container'
 import { UnderlineLink } from '../components/UnderlineLink'
 
 // Editorial sitemap + connect groups. Sitemap mirrors the Nav's in-page anchors;
-// Connect carries the social/email links (placeholder "#" for the fictional studio).
+// Connect carries the designer's real social links (X, LinkedIn) plus the
+// fictional studio's demo email.
 const sitemap = [
   { label: 'Work', href: '#work' },
   { label: 'Services', href: '#services' },
@@ -11,8 +12,8 @@ const sitemap = [
 ] as const
 
 const connect = [
-  { label: 'X', href: '#' },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'X', href: 'https://x.com/VitalinaN96916' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/vitalina-nikulina-0a3088215/' },
   { label: 'Email', href: 'mailto:hello@helm.studio' },
 ] as const
 
@@ -90,13 +91,13 @@ export function Footer() {
           <div className="flex flex-col gap-y-5 md:flex-row md:items-baseline md:justify-between">
             <p className="max-w-[62ch] font-mono text-[11px] leading-[1.8] tracking-[0.03em] text-ink-faint">
               Fictional studio — a portfolio concept by{' '}
-              <a href="#" className={metaLink}>
+              <a href="https://vitaniko91-lang.github.io/" className={metaLink}>
                 Vitalina Nikulina
               </a>
               <span aria-hidden className="px-1.5">
                 ·
               </span>
-              <a href="#" className={metaLink}>
+              <a href="https://x.com/VitalinaN96916" className={metaLink}>
                 X<span aria-hidden> ↗</span>
               </a>
             </p>
